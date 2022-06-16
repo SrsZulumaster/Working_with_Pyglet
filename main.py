@@ -7,10 +7,11 @@ class MyWindow(pyglet.window.Window):
     def __init__(self, width, height, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.set_size(width, height)
+        # set background color
         background_colour = [255, 255, 255, 0]
-        # background_colour = [i / 255 for i in background_colour]
         glClearColor(*background_colour)
 
+    # on_draw updates the window every "tick", is necessary to display everything on the window
     def on_draw(self):
         window.clear()
 
@@ -32,6 +33,7 @@ class MyWindow(pyglet.window.Window):
 
 
 framerate = 30
+# define window size
 window = MyWindow(700, 700)
 pyglet.clock.schedule_interval(window.update, 1 / framerate)
-pyglet.app.run()
+pyglet.app.run()    # This line starts the Window
